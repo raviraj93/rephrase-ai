@@ -1,6 +1,8 @@
-document.addEventListener('mouseup', async () => {
-    const selectedText = window.getSelection().toString().trim();
-    if (!selectedText) return;
-
-    chrome.runtime.sendMessage({ type: 'REPHRASE_TEXT', text: selectedText });
+document.addEventListener("mouseup", () => {
+    const selection = window.getSelection().toString().trim();
+    if (selection.length > 0) {
+        chrome.runtime.sendMessage({ type: "REPHRASE_SELECTED_TEXT", text: selection }, (response) => {
+            console.log("Response:", response);
+        });
+    }
 });

@@ -11,12 +11,13 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 .then(res => res.json())
                 .then(data => {
                     chrome.scripting.executeScript({
-                        target: { tabId: message.tabId, allFrames: true },
-                        func: (rephrased) => {
-                            alert("Rephrased text: " + rephrased);
-                        },
+                        target: { tabId: sender.tab.id },
+                        func: (rephrased) => alert("Rephrased text: " + rephrased),
                         args: [data.rephrased]
                     });
+                })
+                .catch(err => {
+                    console.error("Failed to rephrase:", err);
                 });
         });
     }
