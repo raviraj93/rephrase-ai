@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Rephrase AI</title>
-    <style>body { font-family: sans-serif; padding: 10px; }</style>
-</head>
+<head><title>Rephrase AI</title></head>
 <body>
 <textarea id="inputText" rows="5" cols="40" placeholder="Enter text..."></textarea><br>
+<label><input type="radio" name="mode" value="default" checked> Default</label>
+<label><input type="radio" name="mode" value="humanize"> Humanize</label>
+<label><input type="radio" name="mode" value="playful"> Playful</label><br>
 <button id="rephraseButton">Rephrase</button>
 <div id="result"></div>
 <script src="popup.js"></script>
